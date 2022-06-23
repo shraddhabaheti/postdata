@@ -16,7 +16,7 @@ function Basic() {
 
         } catch (err) {
             console.log(err)
-
+           
         }
 
 
@@ -28,7 +28,9 @@ function Basic() {
         if (e.target.value) {
             let result = data.filter(value => value.title.includes(e.target.value))
             setData(result)
-        } else {
+
+        } 
+         else {
             setData(serch)
         }
     }
@@ -55,7 +57,6 @@ function Basic() {
                                             <Card.Body>
                                                 <Card.Text>{value.id}</Card.Text>
                                                 <Card.Text> </Card.Text>
-
                                                 <Button variant="primary">view</Button>
                                                 <Button variant="info">viewDeatils</Button>
                                             </Card.Body>
@@ -67,14 +68,11 @@ function Basic() {
                                             <Card.Title>{value.title}</Card.Title>
                                             <Card.Img variant="top" src={value.url} />
                                             <Card.Body>
-
-                                                <Card.Text>{value.id} </Card.Text>
+                                                <Card.Text>{value.id}</Card.Text>
                                                 <Card.Text></Card.Text>
 
                                                 <Button variant="primary">view</Button>
                                                 <Button variant="info">viewDeatils</Button>
-
-
                                             </Card.Body>
                                         </Card>
                                     </td>
@@ -88,8 +86,7 @@ function Basic() {
                                                 <Card.Text></Card.Text>
                                                 <Button variant="primary">view</Button>
                                                 <Button variant="info">viewDeatils</Button>
-
-                                            </Card.Body>
+                                        </Card.Body>
                                         </Card>
                                     </td>
 
