@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -7,13 +8,10 @@ import './App.css';
 import imagei from "./download.jpeg";
 import images from "./sha.jpg";
 import { useNavigate } from 'react-router-dom';
-//import { useParams } from 'react-router-dom';
-import Viewdetails from './Viewdetails';
-function Basic() {
+function View() {
     const [data, setData] = useState([]);
     const [serch, setSerchbar] = useState([]);
     const navigate=useNavigate();
-   // const { id } = useParams();
     const getApi = async () => {
         try {
             let res = await axios.get('https://jsonplaceholder.typicode.com/photos')
@@ -43,15 +41,7 @@ function Basic() {
     }
     const onSubmit=(e)=>{
     e.preventDefault()
-    navigate('/view')
-
-}
-const submit=(id)=>{
-
-    navigate(`/viewdetails/${id}`)
-   console.log(id)
- // console.log(title)
-
+   
 
 }
     return (
@@ -76,8 +66,7 @@ const submit=(id)=>{
                                             <Card.Body>
                                                 <Card.Text>{value.id}</Card.Text>
                                                 <Card.Text> </Card.Text>
-                                                <Button variant="warning" type="submit" onClick={(e)=>onSubmit(e)}>view</Button>
-                                                <Button variant="info" type="submit" onClick={(e)=>submit(value.id)}>viewDeatils</Button>
+                                                
                                             </Card.Body>
                                         </Card>
                                         
@@ -90,8 +79,7 @@ const submit=(id)=>{
                                                 <Card.Text>{value.id}</Card.Text>
                                                 <Card.Text></Card.Text>
 
-                                                <Button variant="warning" type="submit" onClick={(e)=>onSubmit(e)}>view</Button>
-                                                <Button variant="info" type="submit" onClick={(e)=>submit(value.id)}>viewDeatils</Button>
+                                               
                                             </Card.Body>
                                         </Card>
                                     </td>
@@ -103,8 +91,7 @@ const submit=(id)=>{
                                             <Card.Body>
                                                 <Card.Text>{value.id}</Card.Text>
                                                 <Card.Text></Card.Text>
-                                                <Button variant="warning" type="submit" onClick={(e)=>onSubmit(e)}>view</Button>
-                                                <Button variant="info" type="submit" onClick={(e)=>submit(value.id)}>viewDeatils</Button>
+                                                
                                         </Card.Body>
                                         </Card>
                                     </td>
@@ -122,4 +109,4 @@ const submit=(id)=>{
     );
 }
 
-export default Basic;
+export default View;
