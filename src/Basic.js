@@ -13,7 +13,7 @@ function Basic() {
     const [data, setData] = useState([]);
     const [serch, setSerchbar] = useState([]);
     const navigate=useNavigate();
-   // const { id } = useParams();
+  
     const getApi = async () => {
         try {
             let res = await axios.get('https://jsonplaceholder.typicode.com/photos')
@@ -47,7 +47,7 @@ function Basic() {
     const onSubmit=()=>{
 
     navigate(`/view`)
-
+    
 }
 const submit=(id)=>{
 
