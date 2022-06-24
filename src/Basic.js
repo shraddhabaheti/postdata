@@ -12,8 +12,8 @@ import Viewdetails from './Viewdetails';
 function Basic() {
     const [data, setData] = useState([]);
     const [serch, setSerchbar] = useState([]);
-    const navigate=useNavigate();
-  
+    const navigate = useNavigate();
+
     const getApi = async () => {
         try {
             let res = await axios.get('https://jsonplaceholder.typicode.com/photos')
@@ -23,66 +23,72 @@ function Basic() {
 
         } catch (err) {
             console.log(err)
-            
+
         }
 
 
     }
-     useEffect(() => {
+    useEffect(() => {
         getApi()
-     }, [])
+    }, [])
     const handleChange = (e) => {
         if (e.target.value) {
-             let result =  serch.filter(value => value.title.includes(e.target.value))
-             setData(result)
-             
+            let result = serch.filter(value => value.title.includes(e.target.value))
+            setData(result)
 
-        } 
-         else {
+
+        }
+        else {
             setData(serch)
-           
-            
+
+
         }
     }
-    const onSubmit=()=>{
+    const onSubmit = () => {
 
-    navigate(`/view`)
-    
-}
-const submit=(id)=>{
+        navigate(`/view`)
 
- navigate(`/viewdetails/${id}`)
-   console.log(id)
- 
-}
-     return (
+    }
+    const submit = (id) => {
 
-    <div>
+        navigate(`/viewdetails/${id}`)
+        console.log(id)
+
+    }
+    return (
+
         <div>
-      <h1 className='id'>Post data with api </h1>
-            <input type="search" placeholder='serch...'className='id1' onChange={handleChange} />
+            <div>
+                <h1 className='id'>Post data with api </h1>
+                <input type="search" placeholder='serch...' className='id1' onChange={handleChange} />
+            </div>
+           
+             <div className='container'>
+             <div className="row row-cols-3">
+             { data.map((value, i,) => {
+                    return (
+                       
+                        
+                        <div className="col">
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Title>{value.title}</Card.Title>
+                            <Card.Img variant="top" src={value.url} />
+                            <Card.Body>
+                                <Card.Text>{value.id}</Card.Text>
+                                <Card.Text> </Card.Text>
+                                <Button variant="warning" type="submit" onClick={() => onSubmit()}>view</Button>
+                                <Button variant="primary" type="submit" onClick={() => submit(value.id)}>viewdetails</Button>
+                            </Card.Body>
+                        </Card>
+                        </div>
+                      
+                     )
+                })
+            }
+         </div>
+         </div>
         </div>
-        {
-            data.map((value, i) => {
-                return (
-                  
-                    <Card style={{ width: '18rem' }}>
-                   <Card.Title>{value.title}</Card.Title>
-                   <Card.Img variant="top" src={value.url} />
-                     <Card.Body>
-                    <Card.Text>{value.id}</Card.Text>
-                    <Card.Text> </Card.Text>
-                    <Button variant="warning" type="submit" onClick={()=>onSubmit()}>view</Button>
-                    <Button variant="primary" type="submit" onClick={()=>submit(value.id)}>viewdetails</Button>
-                     </Card.Body>
-                     </Card>
-                   
-                    
-                    
-                 )
-           })
-        }
-    </div> 
- );
+        
+    );
 }
 export default Basic;

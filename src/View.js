@@ -27,7 +27,7 @@ function View() {
     }, [])
     const handleChange = (e) => {
         if (e.target.value) {
-             let result =  data.filter(value => value.title.includes(e.target.value)) 
+             let result =  serch.filter(value => value.title.includes(e.target.value)) 
             setData(result)
         } 
          else {

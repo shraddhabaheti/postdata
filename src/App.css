@@ -43,6 +43,17 @@
    background-color: aquamarine;
   font-family: 'Times New Roman', Times, serif;
 }
+.container{
+  border: 5px solid black;
+          
+}
+.row{
+  border:3px solid red;
+}
+.col{
+  border: 3px solid green;
+  height: 500px;
+}
 
 @keyframes App-logo-spin {
   from {
