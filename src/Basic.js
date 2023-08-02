@@ -17,7 +17,7 @@ function Basic() {
     const getApi = async () => {
         try {
             let res = await axios.get('https://jsonplaceholder.typicode.com/photos')
-            let result = res?.data.slice(0, 50)
+            let result = res?.data.slice(0, 51)
             setData(result)
             setSerchbar(result)
 
@@ -32,10 +32,11 @@ function Basic() {
         getApi()
     }, [])
     const handleChange = (e) => {
+        
         if (e.target.value) {
             let result = serch.filter(value => value.title.includes(e.target.value))
             setData(result)
-
+             
 
         }
         else {
@@ -59,25 +60,30 @@ function Basic() {
 
         <div>
             <div>
-                <h1 className='id'>Post data with api </h1>
-                <input type="search" placeholder='serch...' className='id1' onChange={handleChange} />
+             <h1 className='id'>Post data with api </h1>
+                              <input type="search" placeholder='serch...' className='id1' onChange={handleChange} />
             </div>
            
              <div className='container'>
+                 
              <div className="row row-cols-3">
+           
              { data.map((value, i,) => {
+                
                     return (
                        
                         
-                        <div className="col">
-                        <Card style={{ width: '18rem' }}>
+                        <div className="col m-auto text-danger">
+                            
+
+                        <Card  border="info"style={{ width: '18rem'}}>
                             <Card.Title>{value.title}</Card.Title>
                             <Card.Img variant="top" src={value.url} />
-                            <Card.Body>
+                             <Card.Body >
                                 <Card.Text>{value.id}</Card.Text>
                                 <Card.Text> </Card.Text>
-                                <Button variant="warning" type="submit" onClick={() => onSubmit()}>view</Button>
-                                <Button variant="primary" type="submit" onClick={() => submit(value.id)}>viewdetails</Button>
+                                <Button variant="warning" size='md' type="submit" className='text'  onClick={() => onSubmit()}>view</Button>
+                                <Button variant="primary" size='md' type="submit" className='text1' onClick={() => submit(value.id)}>viewdetails</Button>
                             </Card.Body>
                         </Card>
                         </div>

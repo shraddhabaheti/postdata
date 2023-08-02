@@ -11,11 +11,10 @@ import { useParams } from 'react-router-dom';
 function Viewdetails() {
 
     const [data, setData] = useState([]);
-    const parm = useParams()
+    const {id} = useParams()
 
     const getApi = async () => {
-
-        try {
+   try {
             let res = await axios.get(`https://jsonplaceholder.typicode.com/photos/${parm.id}`)
             let result = res?.data
             console.log(res.data)
@@ -38,10 +37,7 @@ function Viewdetails() {
     return (
 
         <div >
-            <div>
-                <h1 className='id'>Post data with api with  Id  </h1>
-
-            </div>
+              <h1>Hello I am shraddha baheti{id}</h1>
             <h1>{data?.title}</h1>
             <img src={data?.url} />
             <h2>{data?.albumId}</h2>

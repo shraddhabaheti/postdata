@@ -33,7 +33,7 @@
   color:red;
   border: 3px solid red;
   text-align: center;
-  background-color: darkturquoise;
+background-color: aquamarine;
 }
 .id1{
   text-align: left;
@@ -44,17 +44,33 @@
   font-family: 'Times New Roman', Times, serif;
 }
 .container{
-  border: 5px solid black;
+  border: 1px double black;
           
 }
 .row{
-  border:3px solid red;
+  border:1px dashed rgb(69, 238, 154);
+  
 }
 .col{
-  border: 3px solid green;
+  border: 1px dotted rgb(14, 63, 179);
   height: 500px;
+    background-color: pink;
+  padding:2px;
+ 
+ 
 }
+.text.btn-warning {
+  
+  color: rgb(20, 151, 27);
+  background-color: rgb(19, 217, 217);
+  margin-right: 29px;
 
+}
+.text1.btn-primary{
+  color: aqua;
+  background-color: darkslategray;
+  margin-left: 35px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

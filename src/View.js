@@ -3,13 +3,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 //import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 
 function View() {
     const [data, setData] = useState([]);
     const [serch, setSerchbar] = useState([]);
-  
-   
+  const location=useLocation();
+   console.log(location,"===>")
     const getApi = async () => {
         try {
             let res = await axios.get(`https://jsonplaceholder.typicode.com/photos`)
@@ -48,6 +49,7 @@ function View() {
                 data.map((value, i) => {
                     return (
                         <Card style={{ width: '18rem' }}>
+                            <h1>hello I am{location.pathname.replace("/","")} learning view</h1>
                        <Card.Title>{value.title}</Card.Title>
                        <Card.Img variant="top" src={value.url} />
                          <Card.Body>
